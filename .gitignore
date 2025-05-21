@@ -9,8 +9,9 @@ __pycache__/
 
 # Ignore folders:
 data/
-app/
 db/
+
+Makefile
 
 # Ignore Pipenv files (if you're using requirements.txt instead)
 Pipfile

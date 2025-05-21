@@ -1,0 +1,20 @@
+# LangChain
+langchain
+langchain-core>=0.1.40
+langchain-community
+
+# Google GenAI SDK
+langchain-google-genai
+
+# Vector Store
+chromadb>=0.4.24
+
+# Frontend
+streamlit>=1.32.0
+
+# Env and Utils
+python-dotenv>=1.0.0
+
+# Optional: Token counting, local embedding models
+tiktoken>=0.5.1
+sentence-transformers>=2.2.2

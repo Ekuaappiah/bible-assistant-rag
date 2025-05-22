@@ -1,9 +1,7 @@
 import os
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader
+from langchain_chroma import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceEmbeddings
-
 
 def parse_bible_file(file_path: str, persistent_directory: str, embeddings):
     if not os.path.exists(persistent_directory):

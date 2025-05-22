@@ -2,7 +2,9 @@ import os
 from dotenv import load_dotenv
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+
 
 from scripts.ingest import  parse_bible_file
 from scripts.pipeline import build_rag_chain
@@ -32,9 +34,12 @@ rag_chain = build_rag_chain(
     embeddings=embedding_model
 )
 
-rag_chain.invoke({
+result = rag_chain.invoke({
     "input": query,
     "chat_history": [],
 })
+
+print(result)
+
 
 

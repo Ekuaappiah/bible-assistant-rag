@@ -1,15 +1,15 @@
-# LangChain
+# Langchain
 langchain
 langchain-core>=0.1.40
 langchain-community
 
 # Google GenAI SDK
 langchain-google-genai
+
 langchain_huggingface
-langchain_chroma
 
 # Vector Store
-chromadb>=0.4.24
+langchain_chroma
 
 # Frontend
 streamlit>=1.32.0

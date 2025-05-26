@@ -4,6 +4,32 @@ from langchain_chroma import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 def parse_bible_file(file_path: str, persistent_directory: str, embeddings):
+    """
+    Parses a Bible text file and initializes a Chroma vector store using LangChain.
+
+    This function checks if a persistent vector store directory exists. If it does not,
+    it will:
+    - Validate the file path.
+    - Load the text from the specified file using a LangChain TextLoader.
+    - Split the text into manageable chunks using a RecursiveCharacterTextSplitter.
+    - Generate embeddings for the document chunks.
+    - Create and persist a Chroma vector store using those embeddings.
+
+    If the persistent directory already exists, the function will skip initialization.
+
+    Parameters:
+        file_path (str): Absolute or relative path to the Bible text file.
+        persistent_directory (str): Path where the Chroma vector store should be persisted.
+        embeddings: Embedding model or embedding function compatible with LangChain
+                    to convert document chunks into vector representations.
+
+    Raises:
+        FileNotFoundError: If the specified Bible text file does not exist.
+
+    Note:
+        This function assumes that the embeddings parameter is already a valid,
+        initialized embedding model compatible with the Chroma vector store.
+    """
     if not os.path.exists(persistent_directory):
         print("Persistent directory does not exist. Initializing vector store...")
 

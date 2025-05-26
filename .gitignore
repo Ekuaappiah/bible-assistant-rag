@@ -17,6 +17,8 @@ Makefile
 Pipfile
 Pipfile.lock
 
+main.py
+
 
 # C extensions
 *.so

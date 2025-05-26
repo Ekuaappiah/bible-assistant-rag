@@ -3,8 +3,34 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
-
 def build_rag_chain(llm, persistent_directory, embeddings):
+    """
+    Constructs a history-aware Retrieval-Augmented Generation (RAG) chain for Bible study.
+
+    This function initializes a Chroma vector store using the specified persistent directory
+    and embedding model. It sets up a retriever with similarity search and enhances it with
+    conversational memory awareness. The chain then uses a Bible-specific QA prompt to generate
+    grounded responses from retrieved documents.
+
+    The final chain supports:
+    - Rephrasing user questions in context-aware form using prior chat history.
+    - Answering Bible-related queries strictly based on scripture.
+    - Generating Bible reading plans, summaries, and structured content derived directly from verses.
+
+    Parameters:
+        llm: A language model (LLM) instance compatible with LangChain.
+        persistent_directory (str): Path to the persisted Chroma vector store.
+        embeddings: Embedding function or model used to represent the text in vector space.
+
+    Returns:
+        rag_chain: A LangChain RAG chain object that performs context-aware retrieval
+                   and structured document-based answering.
+
+    Notes:
+        - The retriever returns top 3 similar documents based on vector similarity.
+        - All prompts explicitly restrict the assistant to biblical content with no personal
+          interpretation unless scripturally derived.
+    """
     db = Chroma(
         persist_directory=persistent_directory,
         embedding_function=embeddings
@@ -46,4 +72,3 @@ def build_rag_chain(llm, persistent_directory, embeddings):
     # Combine retriever and QA chain
     rag_chain = create_retrieval_chain(history_aware_retriever, qa_chain)
     return rag_chain
-

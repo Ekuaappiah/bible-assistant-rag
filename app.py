@@ -59,7 +59,7 @@ if user_input:
         st.markdown(user_input)
 
     with st.chat_message("assistant"):
-        with st.spinner("Searching scriptures..."):
+        with st.spinner("Searching ..."):
             response = rag_chain.invoke({
                 "input": user_input,
                 "chat_history": st.session_state.chat_history[:-1],  # exclude current question

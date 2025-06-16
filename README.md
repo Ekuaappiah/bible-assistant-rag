@@ -48,8 +48,9 @@ cd bible-assistant-rag
 Using `venv` (Python 3.10+ required):
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+pip install pipenv
+pipenv install -r requirements.txt
+pipenv shell
 ```
 
 

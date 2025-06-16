@@ -65,39 +65,7 @@ GOOGLE_GEMINI_API_KEY=your_google_gemini_api_key
 pip install -r requirements.txt
 ```
 
-### 4. Prepare the Chroma vector store with Bible text
-
-- Obtain your Bible text files (e.g., KJV plain text).
-- Chunk the text into logical passages with metadata.
-- Generate embeddings using Sentence Transformers or your preferred model.
-- Persist the vector store:
-
-```python
-from langchain_community.vectorstores import Chroma
-
-Chroma.from_documents(
-    documents=bible_chunks,
-    embedding=embedding_model,
-    persist_directory="path/to/chroma_store"
-)
-```
-
-### 5. Initialize llm and embedding model
-
-```python
-from langchain_google_genai import ChatGoogleGenerativeAI
-
-# Load environment variables from .env
-load_dotenv()
-
-# Load LLM
-llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash', temperature=0)
-
-embeddings = YourEmbeddingModel()  # e.g., SentenceTransformer
-
-```
-
-### 6. Run the Streamlit web app
+### 4. **Run the Streamlit web app**
 
 ```bash
 streamlit run app.py

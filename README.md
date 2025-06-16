@@ -65,7 +65,53 @@ GOOGLE_GEMINI_API_KEY=your_google_gemini_api_key
 pip install -r requirements.txt
 ```
 
-### 4. **Run the Streamlit web app**
+Here's the content converted to **Markdown format**:
+
+---
+
+##  4: Run the Streamlit Web App with Bible File Setup
+
+### 1. Create a `data/` Folder
+
+In your project directory, create a folder called `data`:
+
+```bash
+mkdir data
+```
+
+### 2. Add Your Bible Text File
+
+Place your Bible file (e.g., `kjv.txt`) into the `data/` folder so your directory looks like this:
+
+```
+your_project/
+├── app.py
+├── data/
+│   └── kjv.txt
+```
+
+### 3. Update the File Path in Your Code
+
+In `app.py`, update the file loading path to reference the `data` directory:
+
+```python
+import os
+
+# Get current file directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Define path to Bible file inside /data
+file_path = os.path.join(current_dir, 'data', 'kjv.txt')
+```
+
+### 4. Run the App
+
+```bash
+streamlit run app.py
+```
+
+
+## 5. **Run the Streamlit web app**
 
 ```bash
 streamlit run app.py
@@ -111,3 +157,4 @@ Built by @EkuaAppiah
 ## Medium Blog (Coming Soon)
 
 A full Medium article will be published soon to explain the architecture, challenges, and design decisions behind this project.
+

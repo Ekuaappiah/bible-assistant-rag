@@ -40,7 +40,7 @@ Generated Answer with Bible citations
 
 ```bash
 git clone https://github.com/Ekuaappiah/bible-assistant-rag.git
-cd scripture-ai-rag
+cd bible-assistant-rag
 ```
 
 ### 2. Create and activate a virtual/env environment

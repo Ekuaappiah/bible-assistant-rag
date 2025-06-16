@@ -57,7 +57,7 @@ pipenv shell
 Create a `.env` file at the project root with your Google Gemini API credentials:
 
 ```env
-GOOGLE_GEMINI_API_KEY=your_google_gemini_api_key
+GOOGLE_API_KEY=your_google_gemini_api_key
 ```
 
 ### 3. Install dependencies

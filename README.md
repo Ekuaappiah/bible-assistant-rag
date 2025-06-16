@@ -104,7 +104,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, 'data', 'kjv.txt')
 ```
 
-## 5. **Run the Streamlit web app**
+### 4. **Run the Streamlit web app**
 
 ```bash
 streamlit run app.py
